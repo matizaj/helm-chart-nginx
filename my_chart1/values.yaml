@@ -1,0 +1,10 @@
+# replicac ount
+# image, tag
+# service type, port
+env: prod
+replicaCount: 2
+image: nginx:1.25.0
+service:
+  enabled: true
+  type: ContainerPort
+  port: 8080

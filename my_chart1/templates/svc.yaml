@@ -1,0 +1,19 @@
+{{- if .Values.service.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Chart.Name }}
+  name: {{ .Release.Name }}-{{ .Chart.Name}}-svc
+spec:
+  ports:
+  - name: 80-8080
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: {{ .Chart.Name}}
+  type: ClusterIP
+status:
+  loadBalancer: {}
+{{- end}}
